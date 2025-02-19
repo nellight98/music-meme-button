@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Музыкальная кнопка</title>
+  <style>
+    button {
+      background-color: #4CAF50; /* Зеленый */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 20px;
+      height: 150px;
+      width: 200px;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #ffffff;
+    }
+    img {
+        width: 250px;
+        height: 250px;
+        border-radius: 10%;
+    }
+  </style>
+</head>
+<body>
+    <div>
+        <p></p>
+    </div>
+
+    <img src="https://i.pinimg.com/736x/ab/3f/c3/ab3fc389b3fb3be9e672a99039fb7d13.jpg" id="playButton">
+    <audio id="myAudio" src="gulp.mp3" preload="auto"></audio>
+
+  <script>
+    var playButton = document.getElementById("playButton");
+    var audio = document.getElementById("myAudio");
+
+    // Функция воспроизведения звука
+    function playAudio() {
+      audio.play().catch(function(error) {
+        console.error("Ошибка воспроизведения:", error);
+        alert("Автовоспроизведение заблокировано браузером. Пожалуйста, разрешите воспроизведение звука для этого сайта.");
+      });
+    }
+
+    // Добавляем обработчик события на кнопку
+    playButton.addEventListener("click", playAudio);
+  </script>
+
+</body>
+</html>
+
